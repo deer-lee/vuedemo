@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
+    <img src="../assets/img/logo.png">
     <h1>{{ msg }}</h1>
+    <el-button type="primary" @click="toNewPage">啦啦啦</el-button>
     <h2>Essential Links</h2>
     <ul>
       <li>
@@ -88,7 +90,15 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App 哈哈哈'
+      msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  created () {
+
+  },
+  methods: {
+    toNewPage () {
+      this.$router.push({name: 'newPage'})
     }
   }
 }

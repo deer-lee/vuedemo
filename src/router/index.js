@@ -8,6 +8,15 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: {name: 'newPage'}
+    },
+    {
+      path: '/newPage',
+      name: 'newPage',
+      component: resolve => require(['../pages/index'], resolve)
+    },
+    {
+      path: '/helloword',
       name: 'HelloWorld',
       component: HelloWorld
     }
