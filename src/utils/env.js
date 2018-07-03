@@ -15,7 +15,7 @@ export function getProjectLink () {
       baseUrl = 'http://sass-dev.wms.com'
       break
     default:
-      baseUrl = 'http://localhost:8001'
+      baseUrl = 'http://localhost:88888'
   }
   return {
     baseUrl: baseUrl

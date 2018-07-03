@@ -15,7 +15,8 @@ export default new Router({
       name: 'newPage',
       component: resolve => require(['../pages/index'], resolve),
       meta: {
-        title: '初始页面'
+        title: '初始页面',
+        intercept: false
       }
     },
     {
@@ -23,8 +24,8 @@ export default new Router({
       name: 'HelloWorld',
       component: HelloWorld,
       meta: {
-        title: '初始页面',
-        intercept: true
+        title: 'helloworld',
+        intercept: false
       }
     },
     {
@@ -32,7 +33,8 @@ export default new Router({
       name: 'notFind',
       component: resolve => require(['../pages/404'], resolve),
       meta: {
-        title: '404'
+        title: '404',
+        intercept: false
       }
     }
   ]
