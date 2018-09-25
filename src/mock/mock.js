@@ -1,8 +1,26 @@
 import Mock from 'mockjs'
+
 var Random = Mock.Random
 
 Mock.setup({
   timeout: 0 - 300
+})
+var arr = [1, 2, 3]
+var demo = Mock.mock({
+  'name|2': 'string',
+  'number|1-2.3-5': 2,
+  'string|1-10': '*',
+  'array|1-5': [
+    {
+      'number|+1': 202// 循环情况下每次加1 初始值为202
+    }
+  ],
+  'boolean|1-5': true,
+  'name1|1': arr,
+  'name2|2': arr,
+  'name3|1-3': arr,
+  'name4': /[a-z][A-Z]/,
+  'name5': /\d{1,3}/
 })
 
 var users = Array.from(Mock.mock({
@@ -15,7 +33,10 @@ var users = Array.from(Mock.mock({
   ]
 }).array)
 
-export default{
+export default {
+  getUser: Mock.mock('/table/user', function () {
+    return users
+  }),
   data: Mock.mock('/table/list', {
     // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
     'foods|1-5': [{
@@ -46,11 +67,12 @@ export default{
     }]
   }),
 
-  getUser: Mock.mock('/table/user', function () {
-    return users
+  getDemo: Mock.mock('/table/demo', function () {
+    return demo
   }),
 
   deleteData: Mock.mock('/table/delete', function (options) {
+    console.log(options)
     let id = parseInt(options.body.split(':')[1])
     let index
     for (let i in users) {
