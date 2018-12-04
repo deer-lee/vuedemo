@@ -10,6 +10,7 @@ import './mock/mock'
 
 import scss from './assets/style/index.scss'
 import {
+  Input,
   Button,
   Select,
   Table,
@@ -17,6 +18,7 @@ import {
 } from 'element-ui'
 
 let components = [
+  Input,
   Button,
   Select,
   Table,

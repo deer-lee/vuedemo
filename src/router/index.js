@@ -20,6 +20,15 @@ export default new Router({
       }
     },
     {
+      path: '/pc',
+      name: 'pc',
+      component: resolve => require(['../pages/pc'], resolve),
+      meta: {
+        title: 'pc',
+        intercept: false
+      }
+    },
+    {
       path: '/helloword',
       name: 'HelloWorld',
       component: HelloWorld,
